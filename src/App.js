@@ -22,8 +22,8 @@ function App() {
        const {data} = await commerce.cart.retrive();
        setcart(data)
   }
-  const addToCart = (productid,)=>[
-
+  const addToCart = async (productid,quantity)=>[
+       const res = await 
   ]
 
    useEffect(()=>{            
