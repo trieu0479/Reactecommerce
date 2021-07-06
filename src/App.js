@@ -9,23 +9,28 @@ import {commerce} from './lib/Commerce';
 function App() {
 
    const [products,setproducts] = useState([]); 
-   const [cart,setcart] = useState()
+   const [cart,setcart] = useState('');
 
-   const fetchProduct = async ()=>{    
-        console.log(commerce) 
-      const {data} = await commerce.products.list();
-      console.log(data);     
+   const fetchProduct = async ()=>{         
+      const {data} = await commerce.products.list();       
       setproducts(data);
    }
 
   const fetchCart = async()=>{
-       const {data} = await commerce.cart.retrive();
-       setcart(data)
+       const data = await commerce.cart.retrieve();     
+       setcart(data);
   }
-  const addToCart = async (productid,quantity)=>[
-       const res = await 
-  ]
 
+  const handleAddCart = async (productId,quantity)=>{
+       console.log('cart');
+       console.log(productId,quantity);
+      const data = await commerce.cart.add(productId,quantity);        
+      setcart(data)
+      console.log(data);
+      console.log(cart);      
+  }
+  
+  console.log(cart);
    useEffect(()=>{            
         fetchProduct();
         fetchCart()
@@ -34,7 +39,7 @@ function App() {
   
   return (
     <div className="App">      
-         <Product products={products}></Product>                
+         <Product products={products} addtocart={handleAddCart}></Product>                
          <NavBar></NavBar>
     </div>
   );
