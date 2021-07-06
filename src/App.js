@@ -22,10 +22,13 @@ function App() {
        const {data} = await commerce.cart.retrive();
        setcart(data)
   }
-  const addToCart = async (productid,quantity)=>[
-       const res = await 
-  ]
+  const addToCart = async (productid,quantity)=>{
+       const res = await commerce.cart.add(productid,quantity);
 
+  }
+  const handleAddCart = ()=>{
+          
+  }
    useEffect(()=>{            
         fetchProduct();
         fetchCart()
@@ -34,7 +37,7 @@ function App() {
   
   return (
     <div className="App">      
-         <Product products={products}></Product>                
+         <Product products={products} addtocart={handleAddCart}></Product>                
          <NavBar></NavBar>
     </div>
   );

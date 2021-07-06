@@ -13,7 +13,7 @@ function ProductChild({products}) {
                      <Typography variant='h5' gutterBottom>{products.name}</Typography> 
                      <Typography variant='h5' color="error">{products.price.formatted_with_code}</Typography> 
                  </div>
-                <Typography  align='left' color='primary'>{products.description.replace('<p>','').replace('</p>','')} </Typography>                  
+                <Typography align='left' color='primary' dis ></Typography>                  
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions} disableSpacing >
                   <IconButton aria-label='Add Card'>
