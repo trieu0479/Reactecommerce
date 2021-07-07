@@ -4,7 +4,9 @@ import {AppBar,Toolbar,IconButton,Badge,MenuItem,Menu,Typography} from '@materia
 import {ShoppingCart} from '@material-ui/icons';
 import useStyle from './style';
 
-function Navbar() {
+function Navbar(props) {
+    const {totalitem} = props;
+    console.log(totalitem);
     const classes = useStyle();
     return (
         <AppBar position='fixed' className={classes.appBar} color='inherit' >
@@ -16,7 +18,7 @@ function Navbar() {
                <div className={classes.grow}></div>
                <div className={classes.button}>
                    <IconButton aria-label='Add Cart'>
-                       <Badge badgeContent={10} color="primary" >
+                       <Badge badgeContent={totalitem} color="primary" >
                            <ShoppingCart></ShoppingCart>
                        </Badge>
                    </IconButton>

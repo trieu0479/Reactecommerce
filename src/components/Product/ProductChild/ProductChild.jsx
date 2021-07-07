@@ -5,11 +5,9 @@ import useStyles from './style';
 
 function ProductChild({products,addtocart}) {          
     const classes = useStyles();  
-    console.log(addtocart);
-    function HandleAddCart(a,b){   
-        console.log(a);  
-        console.log(b);  
-        addtocart(a,b);
+   
+    function HandleAddCart(){                  
+        addtocart(products.id,1);
     }
     return (   
         <Card className={classes.root}>
@@ -17,12 +15,12 @@ function ProductChild({products,addtocart}) {
             <CardContent>
                  <div className={classes.cardContent}>
                      <Typography variant='h5' gutterBottom>{products.name}</Typography> 
-                     <Typography variant='h5' color="error">{products.price.formatted_with_code}</Typography> 
+                     <Typography variant='h5' color="error">{products.price.formatted+'đ'}</Typography> 
                  </div>
                 <Typography dangerouslySetInnerHTML= {{__html: products.description}} align='left' color='primary'/>                
             </CardContent>
             <CardActions disableSpacing className={classes.cardActions} disableSpacing >
-                  <IconButton aria-label='Add Card' onClick={(id,amount)=>HandleAddCart(products.id,amount)}>
+                  <IconButton aria-label='Add Card' onClick={HandleAddCart}>
                       <AddShoppingCart></AddShoppingCart>
                   </IconButton>
             </CardActions>
